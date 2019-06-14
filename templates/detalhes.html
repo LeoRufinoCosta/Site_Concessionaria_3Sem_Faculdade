@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+    <title>DELUXE CARS</title>
+    <style type="text/css">
+    body{
+    font-family: "Allerta Stencil", Sans-serif;
+    }
+    table{
+    font-family: "Allerta Stencil", Sans-serif;
+    }
+    .w3-allerta {
+    font-family: "Allerta Stencil", Sans-serif;
+    }
+    </style>
+</head>
+<header>
+    <div>
+        <div class="w3-bar w3-black w3-border w3-allerta">
+            <label class="w3-bar-item w3-xxxlarge">DELUXE CARS</label>
+        </div>
+    </div>
+</header>
+<body bgcolor="#000000">
+<div>
+  <div class="w3-bar w3-black w3-border w3-allerta">
+    <a href="/" class="w3-bar-item w3-button w3-mobile w3-xlarge">HOME</a>
+    <a href="#" class="w3-bar-item w3-button w3-mobile w3-xlarge" onclick="document.getElementById('id01').style.display='block'">LOGIN</a>
+    <a href="#" class="w3-bar-item w3-button w3-mobile w3-xlarge">CONTATO</a>
+      <form action="/consultacarros" method="post">
+          <input type="text" class="w3-bar-item w3-input w3-white w3-mobile w3-xlarge" placeholder="Busque o nome do seu carro..." size="62" name="buscando">
+          <button class="w3-bar-item w3-button w3-green w3-mobile w3-xlarge" type="submit">BUSCAR</button>
+          </form>
+  </div><br><br>
+</div>
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-black" style="max-width:600px">
+
+      <div class="w3-center w3-black"><br>
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+      </div>
+
+      <form class="w3-container" action="/login" method="post">
+        <div class="w3-section w3-black">
+          <label><b>Usuario</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Seu usuario" name="login" required>
+          <label><b>Senha</b></label>
+          <input class="w3-input w3-border" type="password" placeholder="Sua senha" name="senha" required>
+          <button class="w3-button w3-block w3-amber w3-section w3-padding" type="submit">Login</button>
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-black">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red w3-text-black">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+<center>
+    <table>
+            {% for car in consulta %}
+                <label class="w3-xxxlarge w3-white">{{car[2]}} {{car[1]}}</label>
+
+
+                <tr>
+                    <td>
+                        <img class="w3-border w3-round-xlarge" src={{url}}{{car[9]}} height="550" width="700" style="padding:10px;">
+                    </td>
+
+                    <td>
+                        <font color="white">
+                        <h2>Nome: {{car[1]}}</h2>
+                        <h2>Marca: {{car[2]}}</h2>
+                        <h2>Quilometragem: {{car[3]}} KM</h2>
+                        <h2>Combustivel: {{car[4]}}</h2>
+                        <h2>Cor: {{car[5]}}</h2>
+                        <h2>Cambio: {{car[6]}}</h2>
+                        <h2>Ano: {{car[7]}}</h2>
+                        <h2>Preco: {{car[8]}}</h2>
+                            </font>
+                    </td>
+
+        </table><br><br>
+    <form action="/fazer_reservas/{{car[0]}}">
+        <button type="submit" class="w3-button w3-green w3-round-xlarge" style="width:120px;height:50px">RESERVAR</button>
+    </form>
+    {% endfor %}
+</center>
+</body><br><br>
+<footer>
+    <center>
+         <nav class="conteiner w3-white w3-allerta">
+            <label class="w3-white w3-xlarge">DELUXE CARS</label><br>
+            <label class="w3-white w3-large">A melhor do mercado.</label><br>
+            <label class="w3-white">Copyright © 2019 </label>
+    </nav>
+    </center>
+</footer>
+</html>

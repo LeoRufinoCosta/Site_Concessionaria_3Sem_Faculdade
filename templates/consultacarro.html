@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DELUXE CARS</title>
+</head>
+<body>
+<h1>RESULTADO DA BUSCA</h1>
+<table border="1">
+        <tr>
+            <th>NOME</th>
+            <th>MARCA</th>
+            <th>QUILOMETRAGEM</th>
+            <th>COMBUSTIVEL</th>
+            <th>COR</th>
+            <th>CAMBIO</th>
+            <th>ANO</th>
+            <th>PRECO</th>
+            <th>ACAO</th>
+        </tr>
+        <tr>
+            <td>{{consulta[1]}}</td>
+            <td>{{consulta[2]}}</td>
+            <td>{{consulta[3]}}</td>
+            <td>{{consulta[4]}}</td>
+            <td>{{consulta[5]}}</td>
+            <td>{{consulta[6]}}</td>
+            <td>{{consulta[7]}}</td>
+            <td>{{consulta[8]}}</td>
+            <td><a href="/fazer_reservas/{{consulta[0]}}">RESERVAR</a></td>
+        </tr>
+</table><br><br>
+<form action="/">
+        <input type="submit" value="Voltar"><br>
+    </form>
+</body>
+</html>

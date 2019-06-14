@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DELUXE CARS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+    <style type="text/css">
+    body{
+    font-family: "Allerta Stencil", Sans-serif;
+    }
+    table{
+    font-family: "Allerta Stencil", Sans-serif;
+    }
+    .w3-allerta {
+    font-family: "Allerta Stencil", Sans-serif;
+    }
+    </style>
+</head>
+<body>
+<center>
+     <label class="w3-white w3-xxxlarge">Lista de Carros Reservados</label><br><br>
+    {% for reservado in reserva %}
+    <div class="w3-container">
+  <ul class="w3-ul w3-card-4">
+    <li class="w3-bar w3-black">
+        <a href="/tirar_reservas/{{reservado[0]}}"><span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-red w3-right">TIRAR <br>DA<br> RESERVA</span></a>
+      <img src={{url}}{{reservado[9]}} class="w3-bar-item w3-circle w3-hide-small" style="width:130px">
+      <div class="w3-bar-item ">
+        <span class="w3-large">{{reservado[2]}} {{reservado[1]}} - Reservado por {{reservado[10]}}</span><br>
+        <span>TELEFONE: {{reservado[12]}}</span><br>
+        <span>EMAIL: {{reservado[11]}}</span>
+      </div>
+    </li>
+  </ul>
+</div><br><br>
+    {% endfor %}
+    <form action="/comando">
+        <button type="submit" class="w3-button w3-black w3-round-xlarge" style="width:120px;height:50px">VOLTAR</button>
+    </form>
+    </center>
+</body>
+</html>
